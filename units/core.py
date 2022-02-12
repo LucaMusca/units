@@ -1,8 +1,10 @@
 from typing import Union
-
 import numpy as np
-
 import units
+
+# TODO: add IPython repr_latex
+# TODO: add use of prefixes in repr
+
 
 num = Union[float, int, complex]
 
@@ -13,6 +15,7 @@ def _is_num(x):
 
 class Unit:
     units = {}
+    non_metric_units = {}
 
     def __new__(cls, unit: 'Unit', *args, **kwargs):
         if isinstance(unit, Unit) and not unit:
